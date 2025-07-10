@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatório</title>
+  <style>
+    :root {
+      --main-color: #4a90e2; /* Azul principal */
+      --main-color-fade: #4a91e26b; /* Azul principal transparente*/
+      --secondary-color: #f9f9f9; /* Cinza claro */
+    }
+
+    html { scroll-behavior: smooth; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }/* Reset básico */
+    body { font-family: sans-serif; line-height: 1.6; background: var(--secondary-color); color: #333; }
+    a { text-decoration: none; color: inherit; }
+    nav { position: fixed; top: 0; width: 100%; background: var(--main-color); padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 100; }
+    nav ul { display: flex; justify-content: center; list-style: none; }
+    nav li { margin: 0 1rem; }
+    nav a { color: white; font-weight: bold; }
+    header {
+      padding: 8rem 1rem 4rem;
+      text-align: center;
+      background-image: url('imgs/foodrec_wp_logo.png');
+      background-size: cover;
+      background-position: center 47%;
+      color: #ffffff;
+      overflow: hidden;
+    }
+    header h1 { font-size: 2.5rem; margin-bottom: 0.5rem; text-shadow: 0 1px 3px rgba(0,0,0,0.6); }
+    header p { font-size: 1.1rem; text-shadow: 0 1px 2px rgba(0,0,0,0.5); }
+    main { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+    section { margin-bottom: 3rem; }
+    section h2 { font-size: 1.8rem; margin-bottom: 1rem; border-bottom: 2px solid var(--main-color); padding-bottom: 0.5rem; }
+    .stats, .cards { display: grid; gap: 1rem; }
+    .stats { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-top: 1rem; }
+    .stat { background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); text-align: center; }
+    .stat h3 { font-size: 1.5rem; margin-bottom: 0.3rem; color: var(--main-color); }
+    .cards { grid-template-columns: 1fr; }
+    .card { background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .card h3 { margin-bottom: 0.5rem; color: #333; }
+    .card ul { list-style: disc inside; margin-top: 0.5rem; }
+    footer { text-align: center; padding: 2rem 1rem; background: var(--main-color); color: white; }
+
+    
+    /* Strip animado de SVGs */
+    /* https://www.youtube.com/watch?v=iLmBy-HKIAw */
+    /* https://www.youtube.com/watch?v=mF9yOwlunWk */
+    .slider {
+      width: 100%;
+      border: 1px solid var(--main-color-fade);
+      height: var(--height);
+      mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 20% 80%,
+        transparent
+      );
+    }
+    .slider .list {
+      display: flex;
+      width: 100%;
+      min-width: calc(var(--width) * var(--quantity));
+    }
+    .slider .list .item {
+      display: flex;
+      width: var(--width);
+      height: var(--height);
+      position: absolute;
+      left: 100%;
+      animation: autoRun var(--duration) linear infinite;
+      animation-delay: calc(var(--timeDistance) * var(--position) * -1)!important; /*important garante that the reverse prop doesn't delete this delay*/
+    }
+    /* .slider:hover .item {
+      animation-play-state: paused!important;
+    } */
+    .slider[reverse="true"] .item {
+      animation-direction: reverseAutoRun;
+    }
+    .slider .list .item svg {
+      width: 100%;
+    }
+    @keyframes autoRun {
+      from {
+        left: 100%;
+      } to {
+        left: calc(var(--width) * -1);
+      }
+    }
+    @keyframes reverseAutoRun {
+      from {
+        left: calc(var(--width) * -1);
+      } to {
+        left: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- <nav>
+    <ul>
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#tarefas">Tarefas</a></li>
+      <li><a href="#tecnologias">Tecnologias</a></li>
+      <li><a href="#conclusao">Conclusão</a></li>
+    </ul>
+  </nav> -->
+
+  <div style="background-color: var(--main-color); padding: 2px; position: absolute; width: 100%;"></div>
+
+  <header id="inicio">
+    <!-- <h1>Projeto de Extensão FoodRec</h1> -->
+    <!-- <h1>&bbrk;&</h1> -->
+    <br>
+    <br>
+    <br>
+    <h1>Projeto de Extensão</h1>
+    <p>Resumo de atividades de 25/nov/2024 a 07/jul/2025</p>
+
+    <div class="slider" style="
+      --width: 100px; 
+      --height: 50px;
+      --quantity: 5;
+      --duration: 15s;
+      --timeDistance: calc(var(--duration) / var(--quantity));
+    ">
+      <div class="list">
+        <img class="item" style="--position: 1" src="imgs/FoodRec Logo.svg" alt="Logo" />
+        <img class="item" style="--position: 2" src="imgs/Circles.svg" alt="Circles" />
+        <img class="item" style="--position: 3" src="imgs/Fork.svg" alt="Fork" />
+        <img class="item" style="--position: 4" src="imgs/Knife.svg" alt="Knife" />
+        <img class="item" style="--position: 5" src="imgs/Spoon.svg" alt="Spoon" />
+        <!-- <img class="item" style="--position: 6" src="imgs/Spoon_2.svg" alt="Spoon" /> -->
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="tarefas">
+      <h2>Principais Tarefas</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Impactantes</h3>
+          <ul>
+            <li>Web scrapper do site Menudino (criação, atualização, manutenção e documentação).</li>
+            <li>Automação de VPN via template matching em screenshots de janela.</li>
+            <li>Scripts geradores de metadados com NLP e LLM.</li>
+            <li>Utilização eficiente dos metadados no recbot B2B.</li>
+            <li>Endpoints de conversas do Recbot B2B e B2C (like/dislike/salvar mensagem).</li>
+            <li>Reescrita completa dos endpoints de busca com unificação de pratos e restaurantes.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Secundárias</h3>
+          <ul>
+            <li>Atualizações de manutenção e melhorias no backend do Recbot e scrapper WhatsApp.</li>
+            <li>Página no notion com respostas para o Recbot.</li>
+            <li>Leitura de 2 livros, 1 artigos, 1 PDF e 8 sites recomendados.</li>
+            <li>Atualização de backup incremental no web scrapper do menudino.</li>
+            <li>Formulação e melhorias de prompts no recbot e na geração de dados com LLM.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="tecnologias">
+      <h2>Novas Tecnologias Estudadas</h2>
+      <div class="stats">
+        <div class="stat">
+          <h3>MongoDB</h3>
+          <p>Atlas, Compass, Charts, Aggregations, Indexes</p>
+        </div>
+        <div class="stat">
+          <h3>XPath & Regex</h3>
+          <p>Extração e tratamento de HTML</p>
+        </div>
+        <div class="stat">
+          <h3>Azure OpenAI</h3>
+          <p>Configuração, RAG, LLM local</p>
+        </div>
+        <div class="stat">
+          <h3>Bootstrap & HTML5</h3>
+          <p>Layouts responsivos</p>
+        </div>
+        <div class="stat">
+          <h3>Otimizações Python</h3>
+          <p>Pandas, Numpy, Numba</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="conclusao">
+      <h2>Estimativa de Horas</h2>
+      <p>Total de semanas: 28 (5 meses de 4 semanas + 2 meses de 5 semanas + 1 semana de setembro + 1 de julho)</p>
+      <p>Estudo e código: ~280h (média de 10 horas por semana ou 5 horas por 2 dias da semana)</p>
+      <p>Reuniões: ~43h</p>
+      <p><strong>Total estimado:</strong> ~323 horas</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Relatório gerado por Victor Gabriel Tenório Oliveira</p>
+  </footer>
+
+  <script>
+    // Pequeno script para destaque de link ativo
+    const sections = document.querySelectorAll('section, header');
+    const navLinks = document.querySelectorAll('nav a');
+
+    function onScroll() {
+      const scrollPos = window.scrollY + 100;
+      sections.forEach((sec) => {
+        if (scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight) {
+          navLinks.forEach(link => link.classList.remove('active'));
+          const id = sec.getAttribute('id');
+          const activeLink = document.querySelector(`nav a[href="#${id}"]`);
+          if (activeLink) activeLink.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', onScroll);
+  </script>
+</body>
+</html>
