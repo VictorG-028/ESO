@@ -1,0 +1,1 @@
+A arquivo `index.html` é um resumo em formato de página web estática do relatório do projeto de extensão utilizado para ser aprovado na disciplina ESO (Estágio Supervisionado Obrigatório) da faculadde UFRPE.
